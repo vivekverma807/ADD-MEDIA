@@ -24,36 +24,57 @@ h1, h2, h3, h4, h5, h6 {
   body {
     @apply antialiased overflow-x-hidden;
   }
+}
 
-  /* Custom Scrollbar Styles */
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
 
-  ::-webkit-scrollbar-track {
-    background: var(--color-primary);
-  }
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 100px;
-    border: 3px solid var(--color-primary);
-    transition: all 0.3s ease;
-  }
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 100px;
+  border: 3px solid var(--color-primary);
+  transition: all 0.3s ease;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent-teal);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-teal);
+}
 
-  /* Firefox Support */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #1e293b var(--color-primary);
-  }
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b var(--color-primary);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply overflow-x-hidden w-full;
+}
+
+input, textarea, select {
+  @apply text-base; /* Prevent auto-zoom on iOS */
 }
 
 .glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
+  @apply bg-surface/60 backdrop-blur-xl border border-white/10;
 }
 
 .teal-glow {
