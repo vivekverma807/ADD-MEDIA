@@ -3,7 +3,7 @@ import { Camera, Video, Send, Globe, Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-surface pt-20 pb-10 border-t border-white/10">
+    <footer id="footer" className="bg-surface pt-20 pb-10 border-t border-white/10">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         {/* Brand Info */}
         <div className="space-y-6">
