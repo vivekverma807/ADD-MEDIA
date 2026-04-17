@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-32 lg:pt-40 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-teal/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-orange/10 rounded-full blur-[120px]" />
@@ -48,17 +48,37 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Hero Visual Placeholder */}
+      {/* Hero Visual */}
       <motion.div 
-        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-[600px] glass rounded-l-3xl border-r-0 overflow-hidden"
+        className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-2/5 h-[650px] pr-6"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        <div className="w-full h-full bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center">
-          <div className="text-white/20 text-9xl font-black rotate-90 select-none">
-            ANIMATION
-          </div>
+        <div className="w-full h-full relative group">
+          <div className="absolute inset-0 bg-accent-teal/20 blur-[100px] group-hover:bg-accent-orange/20 transition-all duration-1000" />
+          <motion.div 
+            animate={{ 
+              y: [0, -15, 0],
+            }}
+            transition={{ 
+              duration: 6, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="relative w-full h-full glass rounded-[3rem] overflow-hidden border border-white/20 shadow-2xl"
+          >
+            <img 
+              src="/src/assets/hero-visual.png" 
+              alt="Premium Logo Animation Concept" 
+              className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+            <div className="absolute bottom-10 left-10">
+              <span className="text-white/40 text-xs font-bold uppercase tracking-[0.5em] mb-2 block">Visual Concept</span>
+              <h3 className="text-2xl font-black text-white">Dynamic Motion</h3>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
