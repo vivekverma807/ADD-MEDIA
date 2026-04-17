@@ -11,28 +11,28 @@ const samples = [
     id: `cloth-${num}`,
     name: `Cloth Style ${num}`,
     category: 'Cloth',
-    path: `/src/assets/sample videos/cloth logo animation/${num}.mp4`,
+    path: `/sample videos/cloth logo animation/${num}.mp4`,
     description: 'Elegant cloth-based transitions for fashion and textile brands.'
   })),
   ...[1, 2, 3, 4].map(num => ({
     id: `hospital-${num}`,
     name: `Hospital Style ${num}`,
     category: 'Hospital',
-    path: `/src/assets/sample videos/hospital logo aniamtion/${num}.mp4`,
+    path: `/sample videos/hospital logo aniamtion/${num}.mp4`,
     description: 'Professional and clean animations for healthcare and clinics.'
   })),
   ...[1, 2, 3, 4].map(num => ({
     id: `nature-${num}`,
     name: `Nature Style ${num}`,
     category: 'Nature',
-    path: `/src/assets/sample videos/nature logo animation/${num}.mp4`,
+    path: `/sample videos/nature logo animation/${num}.mp4`,
     description: 'Organic and earth-inspired motion for eco-friendly brands.'
   })),
   ...[1, 2, 3, 4].map(num => ({
     id: `school-${num}`,
     name: `School Style ${num}`,
     category: 'School',
-    path: `/src/assets/sample videos/school logo animation/${num}.mp4`,
+    path: `/sample videos/school logo animation/${num}.mp4`,
     description: 'Dynamic and educational animations for schools and colleges.'
   }))
 ];

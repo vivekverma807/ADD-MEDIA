@@ -69,7 +69,7 @@ export function Hero() {
             className="relative w-full h-full glass rounded-[3rem] overflow-hidden border border-white/20 shadow-2xl"
           >
             <img 
-              src="/src/assets/hero-visual.png" 
+              src="/hero-visual.png" 
               alt="Premium Logo Animation Concept" 
               className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
             />
