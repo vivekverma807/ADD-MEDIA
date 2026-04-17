@@ -6,10 +6,12 @@ import AdminLogin from './pages/Admin/Login';
 import AdminDashboard from './pages/Admin/Dashboard';
 import { MobileNav } from './components/MobileNav';
 import { InstallPrompt } from './components/InstallPrompt';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen pb-16 lg:pb-0">
         <InstallPrompt />
         <Routes>
