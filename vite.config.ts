@@ -16,6 +16,9 @@ export default defineConfig({
         short_name: 'ADD MEDIA',
         description: 'Premium Logo Animation Service Platform',
         theme_color: '#0F172A',
+        background_color: '#0F172A',
+        display: 'standalone',
+        orientation: 'portrait',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -25,7 +28,8 @@ export default defineConfig({
           {
             src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       }
