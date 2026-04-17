@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0F172A;
+  --color-surface: #1E293B;
+  --color-accent-teal: #2DD4BF;
+  --color-accent-orange: #F97316;
+  
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+:root {
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+@layer base {
+  body {
+    @apply antialiased overflow-x-hidden;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 100px;
+    border: 3px solid var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-teal);
+  }
+
+  /* Firefox Support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1e293b var(--color-primary);
+  }
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.teal-glow {
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+}
+
+.orange-gradient {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
