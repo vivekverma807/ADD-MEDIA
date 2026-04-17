@@ -36,7 +36,7 @@ export default function Home() {
       <Hero />
 
       {/* Services Section */}
-      <section className="py-24 relative">
+      <section id="services" className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-black mb-6">Our Expert Services</h2>
@@ -81,7 +81,7 @@ export default function Home() {
                 Join hundreds of brands that have elevated their identity with ADD MEDIA. Start your project today.
               </p>
               <Link to="/order">
-                <Button size="lg" className="bg-white text-accent-orange hover:bg-white/90 shadow-2xl">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-2xl px-12 h-16 text-lg border border-white/10">
                   Order Your Animation Now
                 </Button>
               </Link>
