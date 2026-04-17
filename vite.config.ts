@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.jpg', 'mask-icon.svg'],
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         name: 'ADD MEDIA - Logo Animation Services',
         short_name: 'ADD MEDIA',
@@ -21,27 +21,27 @@ export default defineConfig({
         orientation: 'portrait',
         icons: [
           {
-            src: 'pwa-192x192.jpg',
+            src: 'pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'any'
           },
           {
-            src: 'pwa-512x512.jpg',
+            src: 'pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'any'
           },
           {
-            src: 'maskable-192x192.jpg',
+            src: 'maskable-192x192.png',
             sizes: '192x192',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'maskable'
           },
           {
-            src: 'maskable-512x512.jpg',
+            src: 'maskable-512x512.png',
             sizes: '512x512',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'maskable'
           }
         ]
