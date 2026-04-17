@@ -23,13 +23,26 @@ export default defineConfig({
           {
             src: 'pwa-192x192.jpg',
             sizes: '192x192',
-            type: 'image/jpeg'
+            type: 'image/jpeg',
+            purpose: 'any'
           },
           {
             src: 'pwa-512x512.jpg',
             sizes: '512x512',
             type: 'image/jpeg',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: 'maskable-192x192.jpg',
+            sizes: '192x192',
+            type: 'image/jpeg',
+            purpose: 'maskable'
+          },
+          {
+            src: 'maskable-512x512.jpg',
+            sizes: '512x512',
+            type: 'image/jpeg',
+            purpose: 'maskable'
           }
         ]
       }
