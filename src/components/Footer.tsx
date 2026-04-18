@@ -1,7 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Camera, Video, Send, Globe, Mail, Phone, MapPin } from 'lucide-react';
 
 export function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (id: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer id="footer" className="bg-primary pt-32 pb-12 border-t border-white/5">
       <div className="container mx-auto px-6">
@@ -33,13 +49,18 @@ export function Footer() {
             <div>
               <h4 className="text-sm font-black uppercase tracking-[0.2em] text-accent-teal mb-8">Navigation</h4>
               <ul className="space-y-4">
-                {['Home', 'Showcase', 'Services', 'Contact Us'].map((item) => (
-                  <li key={item}>
-                    <Link to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '')}`} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
+                <li>
+                  <Link to="/" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium">Home</Link>
+                </li>
+                <li>
+                  <Link to="/showcase" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium">Showcase</Link>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('services')} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium cursor-pointer">Services</button>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('footer')} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium cursor-pointer">Contact Us</button>
+                </li>
               </ul>
             </div>
             <div>

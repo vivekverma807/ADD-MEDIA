@@ -19,6 +19,8 @@ export default function Order() {
     delivery: 'basic'
   });
 
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -127,12 +129,32 @@ export default function Order() {
                 </div>
               </div>
 
-              {/* File Upload Placeholder */}
+              {/* File Upload Section */}
               <div className="space-y-2">
                 <label className="text-sm font-bold text-white/70 uppercase tracking-widest ml-4">Upload Your Logo (PNG, SVG, AI)</label>
-                <div className="border-2 border-dashed border-white/10 rounded-3xl p-12 text-center hover:border-accent-teal/50 transition-all cursor-pointer group">
-                  <Upload className="mx-auto mb-4 text-white/20 group-hover:text-accent-teal transition-colors" size={48} />
-                  <p className="text-white/40">Drag and drop your logo file here, or click to browse</p>
+                <input 
+                  type="file" 
+                  id="logo-upload"
+                  className="hidden" 
+                  accept=".png,.svg,.ai,.pdf,.eps"
+                  onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
+                />
+                <div 
+                  onClick={() => document.getElementById('logo-upload')?.click()}
+                  className={`border-2 border-dashed rounded-3xl p-12 text-center transition-all cursor-pointer group ${selectedFile ? 'border-accent-teal bg-accent-teal/5' : 'border-white/10 hover:border-accent-teal/50'}`}
+                >
+                  {selectedFile ? (
+                    <div className="flex flex-col items-center">
+                      <CheckCircle2 className="mb-4 text-accent-teal" size={48} />
+                      <p className="text-white font-bold">{selectedFile.name}</p>
+                      <p className="text-white/40 text-sm mt-2">Click to change file</p>
+                    </div>
+                  ) : (
+                    <>
+                      <Upload className="mx-auto mb-4 text-white/20 group-hover:text-accent-teal transition-colors" size={48} />
+                      <p className="text-white/40">Drag and drop your logo file here, or click to browse</p>
+                    </>
+                  )}
                 </div>
               </div>
 
