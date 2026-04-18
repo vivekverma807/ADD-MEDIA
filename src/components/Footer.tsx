@@ -24,20 +24,28 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
           {/* Brand Identity */}
           <div className="lg:col-span-4 space-y-8">
-            <Link to="/" className="flex flex-col leading-[0.85]">
-              <span className="text-3xl font-black tracking-[-0.05em] text-white">
-                ADD<span className="text-accent-teal">MEDIA</span>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+              className="flex flex-col leading-[0.85] text-left group cursor-pointer"
+            >
+              <span className="text-3xl font-black tracking-[-0.05em] text-white group-hover:text-accent-teal transition-colors">
+                ADD<span className="text-accent-teal group-hover:text-white transition-colors">MEDIA</span>
               </span>
               <span className="text-[11px] uppercase tracking-[0.3em] text-accent-orange font-extrabold mt-2">
                 Advertising & Marketing
               </span>
-            </Link>
+            </button>
             <p className="text-white/70 text-lg leading-relaxed max-w-sm">
               We specialize in high-end visual storytelling and premium logo animations that elevate your brand's digital presence.
             </p>
             <div className="flex gap-4">
-              {[Camera, Video, Send, Globe].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-white/80 hover:text-accent-teal hover:border-accent-teal/50 transition-all group">
+              {[
+                { Icon: Camera, url: 'https://instagram.com/addmedia' },
+                { Icon: Video, url: 'https://youtube.com/@addmedia' },
+                { Icon: Send, url: 'https://t.me/addmedia' },
+                { Icon: Globe, url: 'https://addmedia.in' }
+              ].map(({ Icon, url }, i) => (
+                <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl glass flex items-center justify-center text-white/80 hover:text-accent-teal hover:border-accent-teal/50 transition-all group">
                   <Icon size={22} className="group-hover:scale-110 transition-transform" />
                 </a>
               ))}
@@ -51,6 +59,9 @@ export function Footer() {
               <ul className="space-y-4">
                 <li>
                   <Link to="/" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium">Home</Link>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('about')} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium cursor-pointer">About Us</button>
                 </li>
                 <li>
                   <Link to="/showcase" className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium">Showcase</Link>

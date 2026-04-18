@@ -68,6 +68,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="about" className="py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-accent-teal/20 blur-[100px]" />
+              <div className="relative glass p-4 rounded-[3rem] border border-white/20 transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+                <img 
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
+                  alt="Creative Team" 
+                  className="rounded-[2.5rem] w-full h-[500px] object-cover"
+                />
+              </div>
+            </div>
+            <div className="lg:w-1/2 space-y-8">
+              <span className="text-accent-orange font-black uppercase tracking-[0.3em] text-xs">Our Story</span>
+              <h2 className="text-4xl md:text-6xl font-black leading-tight">We Bring Brands <br/> to Life Through <span className="text-accent-teal">Motion</span></h2>
+              <p className="text-xl text-white/60 leading-relaxed">
+                Founded on the intersection of technology and art, ADD MEDIA has spent years perfecting the craft of logo animation. We believe that a logo isn't just a mark—it's the heartbeat of your brand that deserves to move.
+              </p>
+              <div className="grid grid-cols-2 gap-8 pt-4">
+                <div>
+                  <h4 className="text-4xl font-black text-white mb-2">500+</h4>
+                  <p className="text-sm text-white/40 uppercase tracking-widest font-bold">Projects Delivered</p>
+                </div>
+                <div>
+                  <h4 className="text-4xl font-black text-white mb-2">98%</h4>
+                  <p className="text-sm text-white/40 uppercase tracking-widest font-bold">Client Satisfaction</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">

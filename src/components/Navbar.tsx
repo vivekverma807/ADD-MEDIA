@@ -56,6 +56,12 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-10">
             <Link to="/" className="text-white/60 hover:text-white transition-colors font-bold text-[10px] uppercase tracking-[0.2em]">Home</Link>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-white/60 hover:text-white transition-colors font-bold text-[10px] uppercase tracking-[0.2em] cursor-pointer"
+            >
+              About
+            </button>
             <Link to="/showcase" className="text-white/60 hover:text-white transition-colors font-bold text-[10px] uppercase tracking-[0.2em]">Showcase</Link>
             <button 
               onClick={() => scrollToSection('services')}
@@ -95,6 +101,12 @@ export function Navbar() {
             
             <div className="flex flex-col gap-8 text-center">
               <Link to="/" className="text-4xl font-black text-white hover:text-accent-teal transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-4xl font-black text-white hover:text-accent-teal transition-colors"
+              >
+                About
+              </button>
               <Link to="/showcase" className="text-4xl font-black text-white hover:text-accent-teal transition-colors" onClick={() => setIsMenuOpen(false)}>Showcase</Link>
               <button 
                 onClick={() => scrollToSection('services')}
