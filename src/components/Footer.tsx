@@ -19,9 +19,9 @@ export function Footer() {
   };
 
   return (
-    <footer id="footer" className="bg-primary pt-32 pb-12 border-t border-white/5">
+    <footer id="footer" className="bg-primary pt-20 md:pt-32 pb-12 border-t border-white/5">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16 md:mb-24">
           {/* Brand Identity */}
           <div className="lg:col-span-4 space-y-8">
             <button 
@@ -53,7 +53,7 @@ export function Footer() {
           </div>
 
           {/* Navigation Matrix */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-8">
+          <div className="lg:col-span-4 grid grid-cols-2 gap-6 md:gap-8">
             <div>
               <h4 className="text-sm font-black uppercase tracking-[0.2em] text-accent-teal mb-8">Navigation</h4>
               <ul className="space-y-4">
@@ -122,7 +122,7 @@ export function Footer() {
         </div>
 
         {/* Legal & Bottom */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-white/30">
+        <div className="pt-8 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-white/30 text-center md:text-left">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
             <p>© 2026 ADD MEDIA. Premium Logo Animation Agency.</p>
