@@ -1,5 +1,4 @@
-import { Navbar } from '../../components/Navbar';
-import { Footer } from '../../components/Footer';
+
 import { Button } from '../../components/UI/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +10,9 @@ export default function AdminLogin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'admin123') { // Mock credentials
+    const currentPassword = localStorage.getItem('adminPassword') || 'admin123';
+    
+    if (password === currentPassword) {
       localStorage.setItem('isAdmin', 'true');
       navigate('/admin/dashboard');
     } else {
@@ -21,7 +22,19 @@ export default function AdminLogin() {
 
   return (
     <div className="bg-primary min-h-screen">
-      <Navbar />
+      {/* Admin Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-surface/50 backdrop-blur-md border-b border-white/5 h-20 flex items-center px-6">
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col leading-[0.85]">
+            <span className="text-xl md:text-2xl font-black tracking-[-0.05em] text-white">
+              ADD<span className="text-accent-teal">MEDIA</span>
+            </span>
+            <span className="text-[8px] uppercase tracking-[0.3em] text-accent-orange font-extrabold mt-1">
+              Admin Portal
+            </span>
+          </div>
+        </div>
+      </header>
       <main className="pt-40 pb-24 flex items-center justify-center px-6">
         <div className="max-w-md w-full glass p-10 rounded-[2.5rem]">
           <div className="w-16 h-16 bg-accent-orange/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
@@ -45,7 +58,7 @@ export default function AdminLogin() {
           </form>
         </div>
       </main>
-      <Footer />
+
     </div>
   );
 }
