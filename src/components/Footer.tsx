@@ -72,6 +72,9 @@ export function Footer() {
                 <li>
                   <button onClick={() => scrollToSection('footer')} className="text-white/60 hover:text-white hover:translate-x-1 transition-all inline-block font-medium cursor-pointer">Contact Us</button>
                 </li>
+                <li>
+                  <Link to="/track" className="text-accent-teal hover:text-white hover:translate-x-1 transition-all inline-block font-medium">Track Order</Link>
+                </li>
               </ul>
             </div>
             <div>
