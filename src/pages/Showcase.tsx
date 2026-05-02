@@ -63,12 +63,12 @@ export default function Showcase() {
     <div className="bg-primary min-h-screen">
       <Navbar />
       
-      <main className="pt-32 pb-24">
+      <main className="pt-28 md:pt-32 pb-16 md:pb-24">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 md:gap-8 mb-10 md:mb-16">
             <div className="max-w-2xl">
-              <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">Animation Showcase</h1>
-              <p className="text-xl text-white/60">
+              <h1 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 tracking-tight">Animation Showcase</h1>
+              <p className="text-lg md:text-xl text-white/60">
                 Immerse yourself in our signature styles. Click any card to preview the animation in high definition.
               </p>
             </div>
@@ -87,10 +87,10 @@ export default function Showcase() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 mb-12">
+          <div className="flex overflow-x-auto hide-scrollbar gap-3 mb-10 md:mb-12 pb-2 -mx-6 px-6 md:mx-0 md:px-0">
             <button 
               onClick={() => setActiveCategory('All')}
-              className={`px-6 py-2.5 rounded-full font-bold transition-all ${activeCategory === 'All' ? 'orange-gradient text-white' : 'glass text-white/60 hover:text-white'}`}
+              className={`px-6 py-2.5 rounded-full font-bold transition-all whitespace-nowrap ${activeCategory === 'All' ? 'orange-gradient text-white' : 'glass text-white/60 hover:text-white'}`}
             >
               All Styles
             </button>
@@ -98,7 +98,7 @@ export default function Showcase() {
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2.5 rounded-full font-bold transition-all ${activeCategory === cat ? 'orange-gradient text-white' : 'glass text-white/60 hover:text-white'}`}
+                className={`px-6 py-2.5 rounded-full font-bold transition-all whitespace-nowrap ${activeCategory === cat ? 'orange-gradient text-white' : 'glass text-white/60 hover:text-white'}`}
               >
                 {cat}
               </button>
