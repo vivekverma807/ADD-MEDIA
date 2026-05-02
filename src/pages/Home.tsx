@@ -36,7 +36,7 @@ export default function Home() {
       <Hero />
 
       {/* Services Section */}
-      <section id="services" className="py-24 relative">
+      <section id="services" className="py-16 md:py-24 relative">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-black mb-6">Our Expert Services</h2>
@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 relative overflow-hidden">
+      <section id="about" className="py-16 md:py-24 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2 relative">
@@ -78,13 +78,13 @@ export default function Home() {
                 <img 
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
                   alt="Creative Team" 
-                  className="rounded-[2.5rem] w-full h-[500px] object-cover"
+                  className="rounded-[2.5rem] w-full h-64 md:h-[500px] object-cover"
                 />
               </div>
             </div>
             <div className="lg:w-1/2 space-y-8">
               <span className="text-accent-orange font-black uppercase tracking-[0.3em] text-xs">Our Story</span>
-              <h2 className="text-4xl md:text-6xl font-black leading-tight">We Bring Brands <br/> to Life Through <span className="text-accent-teal">Motion</span></h2>
+              <h2 className="text-4xl md:text-6xl font-black leading-tight">We Bring Brands <br className="hidden md:block"/> to Life Through <span className="text-accent-teal">Motion</span></h2>
               <p className="text-xl text-white/60 leading-relaxed">
                 Founded on the intersection of technology and art, ADD MEDIA has spent years perfecting the craft of logo animation. We believe that a logo isn't just a mark—it's the heartbeat of your brand that deserves to move.
               </p>
@@ -104,9 +104,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-6">
-          <div className="orange-gradient p-12 md:p-20 rounded-[3rem] text-center relative overflow-hidden">
+          <div className="orange-gradient p-8 md:p-20 rounded-[3rem] text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
@@ -115,8 +115,8 @@ export default function Home() {
               <p className="text-xl text-white/80 mb-10">
                 Join hundreds of brands that have elevated their identity with ADD MEDIA. Start your project today.
               </p>
-              <Link to="/order">
-                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-2xl px-12 h-16 text-lg border border-white/10">
+              <Link to="/order" className="w-full sm:w-auto inline-block">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-2xl px-6 md:px-12 h-16 text-base md:text-lg border border-white/10 w-full sm:w-auto">
                   Order Your Animation Now
                 </Button>
               </Link>
