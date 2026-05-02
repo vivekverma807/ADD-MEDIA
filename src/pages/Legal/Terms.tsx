@@ -5,9 +5,9 @@ export default function Terms() {
   return (
     <div className="bg-primary min-h-screen">
       <Navbar />
-      <main className="pt-40 pb-24 px-6 max-w-4xl mx-auto">
-        <h1 className="text-5xl font-black mb-12">Terms & Conditions</h1>
-        <div className="glass p-10 md:p-16 rounded-[3rem] space-y-8 text-white/70 leading-relaxed">
+      <main className="pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-6 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-black mb-8 md:mb-12">Terms & Conditions</h1>
+        <div className="glass p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] space-y-6 md:space-y-8 text-white/70 leading-relaxed">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-white">1. Service Scope</h2>
             <p>ADD MEDIA provides custom logo animation services based on the styles selected from our showcase. Each project includes a set number of revisions as specified in the service tier chosen during checkout.</p>
