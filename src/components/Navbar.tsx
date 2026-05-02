@@ -69,15 +69,22 @@ export function Navbar() {
             >
               Services
             </button>
+
             <button 
               onClick={() => scrollToSection('footer')}
               className="text-white/60 hover:text-white transition-colors font-bold text-[10px] uppercase tracking-[0.2em] cursor-pointer"
             >
               Contact
             </button>
-            <Link to="/order">
-              <Button size="sm" className="rounded-full px-8 h-10 text-[10px] uppercase tracking-widest">Order Now</Button>
-            </Link>
+            <div className="flex items-center gap-6 pl-6 border-l border-white/10">
+              <Link to="/track" className="text-white/60 hover:text-white transition-colors font-bold text-[10px] uppercase tracking-[0.2em] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
+                Track
+              </Link>
+              <Link to="/order">
+                <Button size="sm" className="rounded-full px-8 h-10 text-[10px] uppercase tracking-widest">Order Now</Button>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -120,6 +127,9 @@ export function Navbar() {
               >
                 Contact
               </button>
+              <Link to="/track" className="text-4xl font-black text-accent-teal hover:text-white transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Track Order
+              </Link>
               <Link to="/order" className="text-4xl font-black text-accent-orange hover:text-white transition-colors" onClick={() => setIsMenuOpen(false)}>Order Now</Link>
             </div>
 
