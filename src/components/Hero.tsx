@@ -30,15 +30,15 @@ export function Hero() {
               Elevate your digital presence with high-end motion graphics and premium branding solutions that leave a lasting impression.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link to="/showcase">
-                <Button size="lg" className="group">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/showcase" className="w-full sm:w-auto">
+                <Button size="lg" className="group w-full sm:w-auto">
                   Explore Showcase
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Button>
               </Link>
-              <Link to="/order">
-                <Button variant="outline" size="lg">
+              <Link to="/order" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
                   <PlayCircle className="mr-2" size={20} />
                   Start a Project
                 </Button>
