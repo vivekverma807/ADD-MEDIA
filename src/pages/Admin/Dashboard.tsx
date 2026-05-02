@@ -1,5 +1,5 @@
 
-import { LayoutDashboard, Users, ShoppingBag, Settings, LogOut, Clock, ExternalLink, RefreshCw, Image as ImageIcon, MessageSquare, X, Trash2 } from 'lucide-react';
+import { LayoutDashboard, Users, ShoppingBag, Settings, LogOut, ExternalLink, RefreshCw, Image as ImageIcon, MessageSquare, X, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
