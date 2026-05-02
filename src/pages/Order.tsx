@@ -5,6 +5,7 @@ import { Button } from '../components/UI/Button';
 import { Upload, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 export default function Order() {
   const [searchParams] = useSearchParams();
@@ -22,6 +23,8 @@ export default function Order() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [trackingId, setTrackingId] = useState('');
 
   useEffect(() => {
     if (selectedStyle) {
@@ -29,31 +32,100 @@ export default function Order() {
     }
   }, [selectedStyle]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setTimeout(() => {
+    setIsSubmitting(true);
+    
+    try {
+      let logoUrl = null;
+
+      // 1. Upload logo if provided
+      if (selectedFile) {
+        const fileExt = selectedFile.name.split('.').pop();
+        const fileName = `${Math.random().toString(36).substring(2, 15)}_${Date.now()}.${fileExt}`;
+        const filePath = `uploads/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('logos')
+          .upload(filePath, selectedFile);
+
+        if (uploadError) {
+          console.error('Error uploading file:', uploadError);
+          alert('Failed to upload logo. Please try again.');
+          setIsSubmitting(false);
+          return;
+        }
+
+        const { data: publicUrlData } = supabase.storage
+          .from('logos')
+          .getPublicUrl(filePath);
+          
+        logoUrl = publicUrlData.publicUrl;
+      }
+
+      // 1.5 Generate Tracking ID
+      const generatedTrackingId = Math.random().toString(36).substring(2, 8).toUpperCase();
+      setTrackingId(generatedTrackingId);
+
+      // 2. Insert order into database
+      const { error: insertError } = await supabase
+        .from('orders')
+        .insert([
+          {
+            tracking_id: generatedTrackingId,
+            customer_name: formData.name,
+            email: formData.email,
+            style: formData.style,
+            delivery_time: formData.delivery,
+            instructions: formData.instructions,
+            logo_url: logoUrl,
+            status: 'Pending'
+          }
+        ]);
+
+      if (insertError) {
+        console.error('Error inserting order:', insertError);
+        alert('Failed to submit order. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
       setIsSubmitted(true);
-    }, 1000);
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      alert('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
     return (
       <div className="bg-primary min-h-screen">
         <Navbar />
-        <main className="pt-40 pb-24 flex items-center justify-center">
+        <main className="pt-32 md:pt-40 pb-16 md:pb-24 flex items-center justify-center px-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="max-w-md w-full glass p-12 rounded-[3rem] text-center"
+            className="max-w-md w-full glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-center"
           >
             <div className="w-20 h-20 bg-accent-teal/20 rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle2 size={40} className="text-accent-teal" />
             </div>
             <h1 className="text-3xl font-black mb-4">Order Received!</h1>
-            <p className="text-white/60 mb-8 leading-relaxed">
-              Thank you for choosing ADD MEDIA. Our team will review your logo and start the animation process. You will receive a confirmation email shortly.
+            <p className="text-white/60 mb-6 leading-relaxed">
+              Thank you for choosing ADD MEDIA. Our team will review your logo and start the animation process.
             </p>
+            
+            <div className="bg-primary/50 border border-accent-teal/30 rounded-2xl p-6 mb-8 inline-block">
+              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-2">Your Tracking ID</p>
+              <p className="text-4xl font-mono font-black text-accent-teal tracking-[0.2em]">{trackingId}</p>
+            </div>
+            
+            <p className="text-sm text-accent-orange font-bold mb-8">
+              Please save this Tracking ID. You can use it to check your order status at any time.
+            </p>
+            
             <Button className="w-full" onClick={() => setIsSubmitted(false)}>Back to Home</Button>
           </motion.div>
         </main>
@@ -66,17 +138,17 @@ export default function Order() {
     <div className="bg-primary min-h-screen">
       <Navbar />
       
-      <main className="pt-32 pb-24">
+      <main className="pt-28 md:pt-32 pb-16 md:pb-24">
         <div className="container mx-auto px-6 max-w-4xl">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-black mb-6">Book Your Animation</h1>
+          <div className="text-center mb-10 md:mb-16">
+            <h1 className="text-4xl md:text-5xl font-black mb-4 md:mb-6">Book Your Animation</h1>
             <p className="text-xl text-white/60">
               Fill in the details below to start your professional logo animation project.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="md:col-span-2 glass p-8 md:p-12 rounded-[3rem] space-y-8">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="md:col-span-2 glass p-6 md:p-12 rounded-[2.5rem] md:rounded-[3rem] space-y-6 md:space-y-8">
               {/* Personal Info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -177,8 +249,8 @@ export default function Order() {
                 </p>
               </div>
 
-              <Button type="submit" size="lg" className="w-full h-16 text-xl">
-                Confirm Order & Proceed
+              <Button type="submit" size="lg" className="w-full h-16 text-xl" disabled={isSubmitting}>
+                {isSubmitting ? 'Processing Order...' : 'Confirm Order & Proceed'}
               </Button>
             </div>
           </form>
